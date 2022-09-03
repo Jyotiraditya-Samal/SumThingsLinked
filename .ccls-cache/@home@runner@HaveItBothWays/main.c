@@ -247,12 +247,6 @@ Main Entry
 **********************************************/
 int main(void)
 {
-#if 0
-  printf("%f\n", log10(0));
-#else
-  //int testNum = -64;
-  //int intLength = 1 + (int)log10(testNum);
-  //printf("\nLength of %d is %d",testNum,intLength);
 	printf("\nProgram to add to linkedlist based integers\n");
 	printf("-------------------------------------------\n");
 
@@ -268,7 +262,6 @@ int main(void)
 	destroyLLInteger(num1);
 	destroyLLInteger(num2);
 	destroyLLInteger(sum);
-#endif
   
 	return 0;
 }
