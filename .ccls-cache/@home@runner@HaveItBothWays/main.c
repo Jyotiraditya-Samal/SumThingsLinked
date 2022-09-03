@@ -78,7 +78,7 @@ void appendNodeToListHead(LLInteger* list, int value)
   list->head = newNode; // update head
 
 	if (! list->tail) // Appending first node to empty list
-		list->tail = newNode; // update tail
+		list->tail = list->head; // update tail to piont to head since only one node
   
 }
 
@@ -120,15 +120,17 @@ LLInteger* createLLInteger()
 	assert(number >= 0 && "Thats not a positive integer\n");
 
 	// calcualte the number of digits entered
-	list->size = 1 + (number ? (int)log10(number) : 0); 
+	list->size = 0; 
 	list->head = NULL;
   list->tail = NULL;
 
-	for (int fillPos = list->size - 1; fillPos >= 0; fillPos--)
+	while (number)
 	{
-		int tempVal = (number / (int)pow(10, fillPos)) % 10; // extract the digit
+		int digit = number % 10;
+    number = number / 10;
 
-		appendNodeToListTail(list, tempVal); //sets tail to last added node
+		appendNodeToListHead(list, digit); //keep adding node to head
+    list->size++;
 	}
 	printf("\n");
 
